@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skill Training with Corruption and Reconstruction Loop</title>
+  <meta name="description" content="A self-supervised framework that learns an agent’s external skill library from human artifacts through corruption and reconstruction, without updating model weights.">
+  <meta property="og:title" content="Skill Training with Corruption and Reconstruction Loop">
+  <meta property="og:description" content="Train an agent’s skill library from human artifacts through a corruption and reconstruction loop.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://skilltraining-project.github.io/">
+  <meta name="citation_title" content="Skill Training with Corruption and Reconstruction Loop">
+  <meta name="citation_author" content="Mo Li"><meta name="citation_author" content="Zixin Yin"><meta name="citation_author" content="Qihao Wu"><meta name="citation_author" content="Ting Cao"><meta name="citation_author" content="Yunxin Liu"><meta name="citation_author" content="Heung-Yeung Shum">
+  <meta name="citation_publication_date" content="2026/09/26">
+  <meta name="citation_pdf_url" content="https://skilltraining-project.github.io/assets/paper.pdf">
+  <link rel="canonical" href="https://skilltraining-project.github.io/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%233e55a5'/%3E%3Cpath d='M29 15a11 11 0 1 0 1 10M29 8v8h-8' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#overview">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Skill Training home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M25 11A11 11 0 1 0 26 21M25 4v8h-8"/></svg>Skill Training</a>
+    <nav aria-label="Main navigation"><a href="#method">Method</a><a href="#results">Results</a><a href="#citation">Citation</a><a class="nav-paper" href="assets/paper.pdf">Paper <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main id="top">
+    <section class="hero" aria-labelledby="paper-title">
+      <p class="edition">Preprint <span>September 2026</span></p>
+      <h1 id="paper-title">Skill Training with<br>Corruption and<br>Reconstruction Loop</h1>
+      <div class="authors"><span>Mo Li<sup>1,2,4</sup></span><span>Zixin Yin<sup>3,4</sup></span><span>Qihao Wu<sup>4</sup></span><span>Ting Cao<sup>1</sup></span><span>Yunxin Liu<sup>1</sup></span><span>Heung-Yeung Shum<sup>1</sup></span></div>
+      <div class="affiliations"><span><sup>1</sup> Tsinghua University</span><span><sup>2</sup> Shanghai AI Laboratory</span><span><sup>3</sup> The Hong Kong University of Science and Technology</span><span><sup>4</sup> Xiaobing.AI</span></div>
+      <div class="hero-links"><a class="button primary" href="assets/paper.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6v18h12V7zM14 3v5h4M9 12h6M9 16h6"/></svg>Read the paper</a><a class="button" href="https://github.com/skilltraining-project/skill-training"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-15-2 18"/></svg>Code <span class="button-note">Private</span></a><a class="text-link" href="#citation">Cite this work</a></div>
+    </section>
+
+    <section id="overview" class="overview section-wrap">
+      <div class="intro"><h2>Learn the craft. <br>Keep the model frozen.</h2><p>Professional work contains more than answers. It contains skills. We turn existing human artifacts into a learning signal that an agent uses to build and refine an external, readable skill library.</p></div>
+      <figure class="framework"><a href="assets/framework.png" target="_blank" rel="noopener" aria-label="Open the framework figure at full size"><img src="assets/framework.png" width="2200" height="1202" alt="The corruption and reconstruction loop: compress a human screenplay into an outline, reconstruct it using a skill library, compare it against the human original, and update relevant skills."></a><figcaption>Corrupt the artifact. Reconstruct it. Learn from the gap. <a href="assets/framework.png" target="_blank" rel="noopener">View full-size figure</a></figcaption></figure>
+    </section>
+
+    <section class="abstract section-wrap" aria-labelledby="abstract-title"><h2 id="abstract-title">Abstract</h2><p>Large Language Models (LLMs) often struggle in highly specialized domains. Rather than parameter-level adaptation of LLMs which is costly and difficult to interpret, external skills (often defined as text files) have been recently proposed to augment LLMs for specialized domains. However, such skills rely on costly active human annotations or passive summarization of high-quality examples. In this paper, we propose a self-supervised approach for agent self-evolution that learns domain-specific skills directly from existing high-quality human artifacts, without additional human annotations or external rewards. Inspired by diffusion models, our approach follows a forward–loss–backward process to reconstruct human artifacts by iteratively learning the agent’s external skill library rather than updating its model parameters. Experiments on short-drama screenwriting demonstrate that our approach enables agents to autonomously extract generalizable writing skills from human-authored scripts and substantially improve domain-specific generation quality. Our approach provides a scalable paradigm for agents to continuously learn many kinds of complex skills from existing high-quality human artifacts.</p></section>
+
+    <section id="method" class="method-band"><div class="section-wrap"><div class="section-heading"><h2>How the library learns</h2><p>The human original supplies the reference. The agent’s own mistakes determine what to learn.</p></div><ol class="steps"><li><span class="step-number">1</span><h3>Corrupt</h3><p>Compress a professional screenplay into a story outline. Preserve the plot, remove dialogue, actions, and pacing.</p></li><li><span class="step-number">2</span><h3>Reconstruct</h3><p>The script agent reads relevant skill cards and writes a full screenplay from the outline.</p></li><li><span class="step-number">3</span><h3>Compare</h3><p>A loss agent contrasts the reconstruction with the original and describes the specific gaps in writing craft.</p></li><li><span class="step-number">4</span><h3>Update</h3><p>A backward agent routes the feedback into targeted skill edits. The next reconstruction uses the revised library.</p></li></ol><p class="method-footnote">Skills are stored as text cards, organized by expertise and retrieved when relevant. Model weights stay fixed throughout training.</p></div></section>
+
+    <section id="results" class="section-wrap results"><div class="section-heading"><h2>From learned skills to better scripts</h2><p>Trained on 20 professional short-drama novels. Evaluated on 385 episodes from 6 unseen novels, using Claude Sonnet 4.6.</p></div>
+      <div class="result-highlights"><div><p class="result-label">Hard-cut endings</p><p class="result-value"><span>34%</span><span class="value-arrow" aria-hidden="true">→</span>67%</p><p>Episodes that stop mid-action, before the outcome lands.</p></div><div><p class="result-label">Unfilmable action lines</p><p class="result-value"><span>1.2</span><span class="value-arrow" aria-hidden="true">→</span>0.2</p><p>Lines per episode describing what a camera cannot capture.</p></div><div><p class="result-label">Human preference</p><p class="result-value">49<span class="value-denominator">/ 75</span></p><p>Judgments favor trained skills over an empty library, across 15 episode pairs and 5 readers.</p></div></div>
+      <div class="table-heading"><h3>Comparison with prompting and direct distillation</h3><a href="assets/paper.pdf#page=6">Table 2 in the paper <span aria-hidden="true">↗</span></a></div>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Main results comparison table, scroll horizontally on small screens"><table><caption>Mean values and episode-level rates. ↑ Higher is preferred. ↓ Lower is preferred. ~ Descriptive, with no preferred direction.</caption><thead><tr><th scope="col">Metric</th><th scope="col">Base</th><th scope="col">+Few-shot</th><th scope="col">+Distill</th><th scope="col" class="ours">+Ours</th><th scope="col">Human</th></tr></thead><tbody>
+        <tr><th scope="row">Longest dialogue volley <small>turns / episode · ~</small></th><td>4.5</td><td>4.6</td><td>4.9</td><td class="ours">4.2</td><td>3.6</td></tr>
+        <tr><th scope="row">Dialogue line length <small>words · ~</small></th><td>5.6</td><td>10.2</td><td>7.1</td><td class="ours">7.3</td><td>11.9</td></tr>
+        <tr><th scope="row">Voice-over cues <small>per episode · ~</small></th><td>0.35</td><td>0.37</td><td>2.56</td><td class="ours">0.52</td><td>0.22</td></tr>
+        <tr><th scope="row">Unfilmable action lines <small>per episode · ↓</small></th><td>1.2</td><td>1.5</td><td>1.5</td><td class="ours"><strong>0.2</strong></td><td>0.4</td></tr>
+        <tr><th scope="row">Stimulus words <small>per episode · ↑</small></th><td>3.3</td><td>2.9</td><td>3.3</td><td class="ours"><strong>6.3</strong></td><td>9.2</td></tr>
+        <tr><th scope="row">Plot-conflict density <small>per 1,000 words · ↑</small></th><td>2.10</td><td>2.00</td><td>1.81</td><td class="ours"><strong>3.69</strong></td><td>3.47</td></tr>
+        <tr><th scope="row">Hard-cut ending rate <small>↑</small></th><td>34%</td><td>34%</td><td>32%</td><td class="ours"><strong>67%</strong></td><td>62%</td></tr>
+        <tr><th scope="row">Cold-open rate <small>↑</small></th><td>52%</td><td>52%</td><td>52%</td><td class="ours"><strong>74%</strong></td><td>59%</td></tr>
+        <tr><th scope="row">Prop-activation rate <small>↑</small></th><td>46%</td><td>45%</td><td>48%</td><td class="ours"><strong>58%</strong></td><td>57%</td></tr>
+        <tr><th scope="row">Ending-twist rate <small>~</small></th><td>33%</td><td>34%</td><td>32%</td><td class="ours">31%</td><td>31%</td></tr>
+      </tbody></table></div><p class="table-note">Base uses an empty library. +Few-shot provides 24 human-written episodes. +Distill learns rules directly from human scripts. +Ours learns through reconstruction. All six directional metrics improve significantly over Base in the paper’s paired bootstrap analysis. These metrics measure specific writing behaviors, not overall script quality.</p>
+      <div class="human-note"><h3>What readers preferred</h3><p>In a blind comparison, the trained version received 49 wins, the base version 17 wins, and 9 judgments were ties. The five readers included three external short-drama practitioners and two paper authors. Each reader assessed the same 15 episode pairs.</p></div>
+    </section>
+
+    <section class="transfer section-wrap"><div class="section-heading"><h2>Skills can travel between models</h2><p>A library learned by Sonnet can also guide Kimi K2.6 and Claude Opus 4.8. The training signal comes from a model’s mistakes, while the resulting text skills can be reused by another model.</p></div><figure><a href="assets/transfer.png" target="_blank" rel="noopener" aria-label="Open cross-model results at full size"><img src="assets/transfer.png" alt="Ten metric panels comparing Sonnet 4.6, Kimi K2.6 and Opus 4.8 with empty libraries, transferred Sonnet skills and their own learned skills." width="2000" height="837" loading="lazy"></a><figcaption>Figure 4. Cross-model evaluation. All libraries in this experiment are trained on five novels. <a href="assets/transfer.png" target="_blank" rel="noopener">View full-size figure</a></figcaption></figure><p class="transfer-finding">With Sonnet’s library, Opus scores significantly higher on five of the six directional metrics than with its own library. Hard-cut endings are the exception.</p></section>
+
+    <section id="citation" class="citation-band"><div class="section-wrap citation-inner"><div><h2>Citation</h2><p>September 2026 preprint</p><a href="assets/paper.pdf">Download the paper</a></div><div class="citation-code"><div class="code-header"><span>BibTeX</span><button id="copy-citation" type="button">Copy citation</button><span id="copy-status" class="sr-only" role="status"></span></div><pre id="bibtex">@misc{li2026skilltraining,
+  title={Skill Training with Corruption and Reconstruction Loop},
+  author={Li, Mo and Yin, Zixin and Wu, Qihao and Cao, Ting
+          and Liu, Yunxin and Shum, Heung-Yeung},
+  year={2026},
+  note={Preprint},
+  url={https://skilltraining-project.github.io/}
+}</pre></div></div></section>
+  </main>
+  <footer class="section-wrap"><a class="footer-brand" href="#top">Skill Training</a><p>Based on the September 26, 2026 preprint.</p><a href="https://github.com/skilltraining-project/skill-training">Code repository <span class="private-note">(currently private)</span></a></footer>
+</body>
+</html>
