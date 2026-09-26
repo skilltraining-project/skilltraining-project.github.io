@@ -21,3 +21,5 @@ Serve the repository root with any static HTTP server, then open its local URL.
 Content and results are from the author-provided `preprint-20260926.pdf` dated September 26, 2026. The page retains the revised title and six-author list supplied by the author; the canonical paper links point to arXiv:2607.27557. `assets/paper.pdf` remains an archived copy of the supplied manuscript. The two figures were rendered from the corresponding original figure PDFs. Table values follow Table 2; the preference-study counts follow Section 4.4 and Appendix H. The webpage does not publish training data or code from the private research repository.
 
 The header and browser icons use the author-supplied `logo.png` from SkillTron, copied unchanged to `assets/logo.png`.
+
+When changing `style.css`, update the `?v=` value in its stylesheet link in `index.html` to the first 12 characters of the stylesheet’s SHA-256 hash. This prevents cached old styles from being paired with new HTML. Keep the header logo’s inline dimensions as a fallback.

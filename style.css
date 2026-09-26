@@ -7,4 +7,4 @@
 @media(max-width:360px){.steps{grid-template-columns:1fr}.site-header{flex-wrap:wrap}h1{font-size:clamp(2.25rem,12vw,2.65rem)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
-.wordmark .brand-logo{width:44px;height:44px;flex:0 0 44px;object-fit:contain;margin:-9px -4px -9px -9px}
+.wordmark .brand-logo{width:36px;height:36px;max-width:36px;max-height:36px;flex:0 0 36px;object-fit:contain}.wordmark{white-space:nowrap}
