@@ -8,7 +8,7 @@ Public project page for **Skill Training with Corruption and Reconstruction Loop
 
 ## Updating the page
 
-Edit `index.html` for text, author details, links, the results table, or citation. Edit `style.css` for appearance. Replace `assets/paper.pdf` with the next preprint while keeping the filename to preserve existing links. Update the visible preprint date and citation metadata together. Figures are in `assets/framework.png` and `assets/transfer.png`.
+Edit `index.html` for text, author details, links, the results table, or citation. Edit `style.css` for appearance. The paper buttons and citation point to the unversioned arXiv record at https://arxiv.org/abs/2607.27557, so future arXiv replacements keep the same links. The visible date is the initial release in July 2026. Figures are in `assets/framework.png` and `assets/transfer.png`.
 
 Push changes to `main`. GitHub Pages publishes from the root directory of `main`, with `.nojekyll` enabling plain static files. There is no build step or package installation.
 
@@ -18,4 +18,6 @@ Serve the repository root with any static HTTP server, then open its local URL.
 
 ## Sources
 
-Content and results are from the author-provided `preprint-20260926.pdf` dated September 26, 2026. The downloadable paper is an unchanged copy. The two figures were rendered from the corresponding original figure PDFs. Table values follow Table 2; the preference-study counts follow Section 4.4 and Appendix H. The webpage does not publish training data or code from the private research repository.
+Content and results are from the author-provided `preprint-20260926.pdf` dated September 26, 2026. The page retains the revised title and six-author list supplied by the author; the canonical paper links point to arXiv:2607.27557. `assets/paper.pdf` remains an archived copy of the supplied manuscript. The two figures were rendered from the corresponding original figure PDFs. Table values follow Table 2; the preference-study counts follow Section 4.4 and Appendix H. The webpage does not publish training data or code from the private research repository.
+
+The header and browser icons use the author-supplied `logo.png` from SkillTron, copied unchanged to `assets/logo.png`.
