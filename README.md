@@ -4,7 +4,7 @@ Public project page for **Skill Training with Corruption and Reconstruction Loop
 
 - Website: https://skilltraining-project.github.io/
 - Pages settings: https://github.com/skilltraining-project/skilltraining-project.github.io/settings/pages
-- Research code: https://github.com/skilltraining-project/skill-training (currently private)
+- Research code: https://github.com/skilltraining-project/skill-training
 
 ## Updating the page
 
@@ -18,7 +18,7 @@ Serve the repository root with any static HTTP server, then open its local URL.
 
 ## Sources
 
-Content and results are from the author-provided `preprint-20260926.pdf` dated September 26, 2026. The page retains the revised title and six-author list supplied by the author; the canonical paper links point to arXiv:2607.27557. `assets/paper.pdf` remains an archived copy of the supplied manuscript. The two figures were rendered from the corresponding original figure PDFs. Table values follow Table 2; the preference-study counts follow Section 4.4 and Appendix H. The webpage does not publish training data or code from the private research repository.
+Content and results are from the author-provided `preprint-20260926.pdf` dated September 26, 2026. The page retains the revised title and six-author list supplied by the author; the canonical paper links point to arXiv:2607.27557. `assets/paper.pdf` remains an archived copy of the supplied manuscript. The two figures were rendered from the corresponding original figure PDFs. Table values follow Table 2; the preference-study counts follow Section 4.4 and Appendix H. Research code is available in the separate public research repository linked above.
 
 The header and browser icons use the author-supplied `logo.png` from SkillTron, copied unchanged to `assets/logo.png`.
 
