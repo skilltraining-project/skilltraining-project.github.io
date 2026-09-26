@@ -8,7 +8,7 @@ Public project page for **Skill Training with Corruption and Reconstruction Loop
 
 ## Updating the page
 
-Edit `index.html` for text, author details, links, the results table, or citation. Edit `style.css` for appearance. The paper buttons and citation point to the unversioned arXiv record at https://arxiv.org/abs/2607.27557, so future arXiv replacements keep the same links. The visible date is the initial release in July 2026. Figures are in `assets/framework.png`, `assets/training-curve.png`, and `assets/transfer.png`.
+Edit `index.html` for text, author details, links, the results table, or citation. Edit `style.css` for appearance. The paper buttons open the author-provided latest PDF hosted at `assets/paper.pdf`. When replacing that file, update the `?v=` value on all PDF links and `citation_pdf_url` to the first 12 characters of its SHA-256 hash to avoid stale cached PDFs. The BibTeX citation retains the canonical arXiv record https://arxiv.org/abs/2607.27557. The visible date is the initial release in July 2026. Figures are in `assets/framework.png`, `assets/training-curve.png`, and `assets/transfer.png`.
 
 Push changes to `main`. GitHub Pages publishes from the root directory of `main`, with `.nojekyll` enabling plain static files. There is no build step or package installation.
 
@@ -18,7 +18,7 @@ Serve the repository root with any static HTTP server, then open its local URL.
 
 ## Sources
 
-Content and results are from the author-provided `preprint-20260926.pdf` dated September 26, 2026. The page retains the revised title and six-author list supplied by the author; the canonical paper links point to arXiv:2607.27557. `assets/paper.pdf` remains an archived copy of the supplied manuscript. The three figures were rendered from the corresponding original figure PDFs. Table values follow Table 2; the preference-study counts follow Section 4.4 and Appendix H. Training curves reproduce Figure 6 and follow Section 5.2 and Appendix G, using the fixed 180-episode subset rather than the full 385-episode evaluation. Research code is available in the separate public research repository linked above.
+Content and results are from the author-provided `preprint-20260926.pdf` dated September 26, 2026. The page retains the revised title and six-author list supplied by the author; the citation points to arXiv:2607.27557. `assets/paper.pdf` is the latest author-supplied manuscript served directly by this site, including while an arXiv replacement is pending. The three figures were rendered from the corresponding original figure PDFs. Table values follow Table 2; the preference-study counts follow Section 4.4 and Appendix H. Training curves reproduce Figure 6 and follow Section 5.2 and Appendix G, using the fixed 180-episode subset rather than the full 385-episode evaluation. Research code is available in the separate public research repository linked above.
 
 The header and browser icons use the author-supplied `logo.png` from SkillTron, copied unchanged to `assets/logo.png`.
 
