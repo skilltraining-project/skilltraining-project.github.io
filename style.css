@@ -8,3 +8,10 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 .wordmark .brand-logo{width:36px;height:36px;max-width:36px;max-height:36px;flex:0 0 36px;object-fit:contain}.wordmark{white-space:nowrap}
+
+/* A quiet cross-link to the companion research project. */
+footer{flex-wrap:wrap;row-gap:16px;padding-top:28px;padding-bottom:28px}
+footer .related-work{flex:0 0 100%;margin:0;color:var(--muted);font-size:.8rem;line-height:1.7}
+footer .related-work a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+footer .related-work a:hover{color:var(--blue);text-decoration-color:currentColor}
+@media(max-width:600px){footer .related-work{flex:0 1 auto}}
