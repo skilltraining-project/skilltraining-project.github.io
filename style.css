@@ -9,9 +9,12 @@
 
 .wordmark .brand-logo{width:36px;height:36px;max-width:36px;max-height:36px;flex:0 0 36px;object-fit:contain}.wordmark{white-space:nowrap}
 
-/* A quiet cross-link to the companion research project. */
-footer{flex-wrap:wrap;row-gap:16px;padding-top:28px;padding-bottom:28px}
-footer .related-work{flex:0 0 100%;margin:0;color:var(--muted);font-size:.8rem;line-height:1.7}
-footer .related-work a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
-footer .related-work a:hover{color:var(--blue);text-decoration-color:currentColor}
-@media(max-width:600px){footer .related-work{flex:0 1 auto}}
+/* A compact companion-project card below the citation. */
+.related-projects{padding-top:40px;padding-bottom:42px}
+.related-projects h2{font-family:inherit;font-size:1rem;font-weight:500;letter-spacing:0;line-height:1.5;color:var(--muted);margin:0 0 16px}
+.related-project-card{display:flex;align-items:center;justify-content:space-between;gap:32px;padding:26px 30px;border:1px solid var(--line);border-radius:10px;background:#f8f9fc;color:var(--ink);text-decoration:none}
+.related-project-card h3{font-family:inherit;font-size:1.35rem;font-weight:600;letter-spacing:-.02em;line-height:1.35;margin:0 0 8px}
+.related-project-card p{font-size:.95rem;line-height:1.7;color:var(--muted);max-width:70ch;margin:0}
+.related-project-card .related-project-visit{flex-shrink:0;font-size:.9rem;color:var(--blue);white-space:nowrap}
+.related-project-card:hover{border-color:var(--blue);background:#f0f4fb;color:var(--ink)}
+@media(max-width:600px){.related-projects{padding-top:30px;padding-bottom:30px}.related-project-card{align-items:flex-start;flex-direction:column;gap:16px;padding:22px}.related-project-card h3{font-size:1.2rem}}
