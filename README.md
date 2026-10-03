@@ -8,7 +8,7 @@ Public project page for **Skill Training with Corruption and Reconstruction Loop
 
 ## Updating the page
 
-Edit `index.html` for text, author details, links, the results table, or citation. Edit `style.css` for appearance. The paper buttons open the author-provided latest PDF hosted at `assets/paper.pdf`. When replacing that file, update the `?v=` value on all PDF links and `citation_pdf_url` to the first 12 characters of its SHA-256 hash to avoid stale cached PDFs. The BibTeX citation retains the canonical arXiv record https://arxiv.org/abs/2607.27557. The visible date is the initial release in July 2026. Figures are in `assets/framework.png`, `assets/training-curve.png`, and `assets/transfer.png`.
+Edit `index.html` for text, author details, links, the results table, or citation. Edit `style.css` for appearance. The paper buttons open the author-provided latest PDF hosted at `assets/paper.pdf`. When replacing that file, update the `?v=` value on all PDF links and `citation_pdf_url` to the first 12 characters of its SHA-256 hash to avoid stale cached PDFs. The BibTeX citation retains the canonical arXiv record https://arxiv.org/abs/2607.27557. The visible date is the initial release in July 2026. Figures are in `assets/framework.png`, `assets/training-curve.png`, and `assets/transfer.png`. The method section opens with a 22-second animation, `assets/teaser.mp4`, with `assets/teaser-poster.jpg` as its still frame. It autoplays muted and loops; the Sound on button restarts it with audio, and visitors who prefer reduced motion see the still frame with player controls instead.
 
 Push changes to `main`. GitHub Pages publishes from the root directory of `main`, with `.nojekyll` enabling plain static files. There is no build step or package installation.
 
@@ -20,6 +20,8 @@ Serve the repository root with any static HTTP server, then open its local URL.
 
 Content and results are from the author-provided `preprint-20260926.pdf` dated September 26, 2026. The page retains the revised title and six-author list supplied by the author; the citation points to arXiv:2607.27557. `assets/paper.pdf` is the latest author-supplied manuscript served directly by this site, including while an arXiv replacement is pending. The three figures were rendered from the corresponding original figure PDFs. Table values follow Table 2; the preference-study counts follow Section 4.4 and Appendix H. Training curves reproduce Figure 6 and follow Section 5.2 and Appendix G, using the fixed 180-episode subset rather than the full 385-episode evaluation. Research code is available in the separate public research repository linked above.
 
+The method animation was made by the authors from the framework figure: an HTML animation rendered frame by frame, with music and sound effects synthesized in code, so it contains no third-party media. Its training curve uses the Figure 6 data; the screenplay lines in it are illustrative.
+
 The header and browser icons use the author-supplied `logo.png` from SkillTron, copied unchanged to `assets/logo.png`.
 
-When changing `style.css`, update the `?v=` value in its stylesheet link in `index.html` to the first 12 characters of the stylesheet’s SHA-256 hash. This prevents cached old styles from being paired with new HTML. Keep the header logo’s inline dimensions as a fallback.
+When changing `style.css` or `script.js`, update the `?v=` value in its link in `index.html` to the first 12 characters of that file’s SHA-256 hash. This prevents cached old styles from being paired with new HTML. Keep the header logo’s inline dimensions as a fallback.

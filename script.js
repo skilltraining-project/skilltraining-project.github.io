@@ -17,3 +17,23 @@ copyButton.addEventListener('click', async () => {
     copyButton.textContent = 'Selected — copy manually';
   }
 });
+
+const teaser = document.querySelector('.teaser video');
+const soundToggle = document.querySelector('.sound-toggle');
+if (teaser) {
+  // Respect reduced-motion settings: show the still poster instead of autoplaying.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    teaser.removeAttribute('autoplay');
+    teaser.pause();
+    teaser.controls = true;
+  }
+  soundToggle.addEventListener('click', () => {
+    teaser.muted = !teaser.muted;
+    if (!teaser.muted) {
+      teaser.currentTime = 0;
+      teaser.play();
+    }
+    soundToggle.textContent = teaser.muted ? 'Sound on' : 'Mute';
+    soundToggle.setAttribute('aria-pressed', String(!teaser.muted));
+  });
+}
