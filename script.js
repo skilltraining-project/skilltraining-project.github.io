@@ -33,7 +33,9 @@ if (teaser) {
       teaser.currentTime = 0;
       teaser.play();
     }
-    soundToggle.textContent = teaser.muted ? 'Sound on' : 'Mute';
+    // The button shows the current state, like a video player's speaker icon.
+    soundToggle.querySelector('span').textContent = teaser.muted ? 'Sound off' : 'Sound on';
+    soundToggle.title = teaser.muted ? 'Turn sound on' : 'Turn sound off';
     soundToggle.setAttribute('aria-pressed', String(!teaser.muted));
   });
 }
