@@ -27,3 +27,4 @@
 .sound-toggle svg{width:17px;height:17px}
 .sound-toggle .icon-sound,.sound-toggle[aria-pressed="true"] .icon-muted{display:none}
 .sound-toggle[aria-pressed="true"] .icon-sound{display:block}
+.core-mark{font-weight:700;color:var(--ink)}
